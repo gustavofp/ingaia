@@ -37,3 +37,12 @@ GET ec2-3-139-100-183.us-east-2.compute.amazonaws.com:3001/square-meter/value/60
 ```console
 GET ec2-3-139-100-183.us-east-2.compute.amazonaws.com:3000/real-estate/value/150
 ```
+
+## Swagger
+
+```console
+ec2-3-139-100-183.us-east-2.compute.amazonaws.com:3001/api-docs/
+```
+
+```console
+Gec2-3-139-100-183.us-east-2.compute.amazonaws.com:3000/api-docs/
