@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node node_modules/.bin/jest",
-    "start": "npm run transpile && node ./dist/index.js",
+    "start": "npm run transpile && node ./dist/src/index.js",
     "start:debug": "npm run transpile && node --debug=5858 ./dist/src/index.js",
     "dev": "nodemon --watch src -L --exec npm run start:debug",
     "transpile": "node ./node_modules/typescript/bin/tsc  --listEmittedFiles"
