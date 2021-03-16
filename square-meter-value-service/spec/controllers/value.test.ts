@@ -34,7 +34,7 @@ describe('Testing Controller', () => {
         }
     })
 
-    test('should call errorHandler when request comes without id', async (done) => {
+    test('should return response with status 400', async (done) => {
         const req: Request = {
             params: {
                 id: null
@@ -49,7 +49,7 @@ describe('Testing Controller', () => {
         try {
             await controller.get(req, res, next)
 
-            expect(errorHandler.handleError).toHaveBeenCalled()
+            expect(res.status).toHaveBeenCalledWith(400)
 
             done()
         } catch (err) {

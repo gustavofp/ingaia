@@ -8,12 +8,12 @@ const get = async (req: Request, res: Response, next: NextFunction) => {
         const { meters } = req.params
 
         if (!meters) {
-            throw new Error('Invalid param meters')
+            return res.status(400)
         }
 
         const squareMeters = Number(meters)
         if (squareMeters < 10 || squareMeters > 10000) {
-            throw new Error('out of range param meters')
+            return res.status(422)
         }
 
         const squareMeterValue = await valueService.getSquareMeterValue();

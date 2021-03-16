@@ -1,0 +1,78 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "InGaia",
+        "description": "Teste técnico",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "/square-meter",
+    "tags": [{
+        "name": "Square Meter Value",
+        "description": "API que retorna o valor por metro quadrado de um empreendimento"
+    }],
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/health": {
+            "get": {
+                "summary": "health check",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/value/{id}": {
+            "get": {
+                "parameters": [
+                    {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID do metro quadrado",
+                    "type": "integer"
+                    }
+                ],
+                "summary": "retorna o valor do metro quadrado com base no id",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "_id": {
+                                    "type": "string",
+                                    "description": "Id do objeto no banco"
+                                },
+                                "price": {
+                                    "type": "number",
+                                    "description": "preço do metro quadrado"
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Id não encontrado"
+                    },
+                    "500": {
+                        "description": "parametros não encontrados"
+                    }
+                }
+            }
+        },
+        "consumes": [
+            "application/json"
+        ],
+        "produces": [
+            "application/json"
+        ]
+    }
+
+}

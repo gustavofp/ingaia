@@ -9,7 +9,7 @@ const get = async (req: Request, res: Response, next: NextFunction) => {
         const { id } = req.params
 
         if (!id) {
-            throw new Error('Invalid param id')
+            return res.status(400)
         }
         
         const objectId = Types.ObjectId(id)

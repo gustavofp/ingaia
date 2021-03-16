@@ -3,6 +3,9 @@ import bodyParser from 'body-parser'
 import router from '../routes'
 import { Express } from 'express';
 import constants from './constants';
+import swaggerUi from 'swagger-ui-express'
+
+import * as swaggerDocument from '../../swagger.json';
 
 const applyDecoders = (server: Express): Express => {
     server.use(bodyParser.json());
@@ -16,6 +19,7 @@ const applyDecoders = (server: Express): Express => {
 
 const applyRouter = (server: Express, applicationRouter: Router): Express => {
     server.use(constants.PATH, applicationRouter)
+    server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
     return server;
 }

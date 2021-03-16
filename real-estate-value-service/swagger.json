@@ -1,0 +1,80 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "InGaia",
+        "description": "Teste técnico",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "/real-estate",
+    "tags": [{
+        "name": "Real State",
+        "description": "API para calculo de valores"
+    }],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/health": {
+            "get": {
+                "summary": "health check",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/value/{meters}": {
+            "get": {
+                "parameters": [
+                    {
+                    "name": "meters",
+                    "in": "path",
+                    "required": true,
+                    "description": "Valor a ser calculado em metros",
+                    "type": "integer"
+                    }
+                ],
+                "summary": "retorna o valor do metro quadrado com base no id",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "price": {
+                                    "type": "number",
+                                    "description": "valor total calculado"
+                                },
+                                "source": {
+                                    "type": "string",
+                                    "description": "fonte dos dados, se foram calculados ou pegos do cache"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "erro inesperado"
+                    }
+                }
+            }
+        },
+        "consumes": [
+            "application/json"
+        ],
+        "produces": [
+            "application/json"
+        ]
+    }
+}
