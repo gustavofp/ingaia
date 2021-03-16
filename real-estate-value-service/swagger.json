@@ -42,7 +42,7 @@
                     "name": "meters",
                     "in": "path",
                     "required": true,
-                    "description": "Valor a ser calculado em metros",
+                    "description": "Valor a ser calculado em metros, deve ser maior que 10 e menor que 10000",
                     "type": "integer"
                     }
                 ],
@@ -63,6 +63,12 @@
                                 }
                             }
                         }
+                    },
+                    "400": {
+                        "description": "parametro não enviado"
+                    },
+                    "412": {
+                        "description": "parametros fora de padrão"
                     },
                     "500": {
                         "description": "erro inesperado"
