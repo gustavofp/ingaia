@@ -45,4 +45,4 @@ ec2-3-139-100-183.us-east-2.compute.amazonaws.com:3001/api-docs/
 ```
 
 ```console
-Gec2-3-139-100-183.us-east-2.compute.amazonaws.com:3000/api-docs/
+ec2-3-139-100-183.us-east-2.compute.amazonaws.com:3000/api-docs/
